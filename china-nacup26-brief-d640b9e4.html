@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 知识速查库 | china-nacup26.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fbe9d7 0%, #f6d5b3 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+    }
+    .page-wrapper {
+      max-width: 1080px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .hero-card {
+      background: #ffffff;
+      border-radius: 42px;
+      box-shadow: 0 20px 40px -12px rgba(140, 80, 30, 0.25), 0 8px 24px rgba(240, 180, 110, 0.15);
+      padding: 2.4rem 2.8rem;
+      margin-bottom: 2.2rem;
+      transition: box-shadow 0.2s ease;
+    }
+    .hero-card h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #4a2d1a;
+      border-left: 6px solid #e48f5c;
+      padding-left: 1.2rem;
+      margin-bottom: 0.9rem;
+    }
+    .hero-card p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #3d2b1b;
+      max-width: 72ch;
+    }
+    .hero-card p a {
+      color: #b45f2b;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #f2c79b;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .hero-card p a:hover {
+      color: #86461e;
+      border-bottom-color: #b45f2b;
+    }
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+    .white-card {
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 12px 28px -8px rgba(130, 70, 20, 0.18);
+      padding: 1.8rem 2rem;
+    }
+    .white-card h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #4a2d1a;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .white-card h2::before {
+      content: "▍";
+      color: #e48f5c;
+      font-weight: 400;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .white-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0.2rem;
+    }
+    .white-card li {
+      padding: 0.45rem 0 0.45rem 1.8rem;
+      position: relative;
+      color: #3d2b1b;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    .white-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0.2rem;
+      color: #d98c5a;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .white-card p {
+      color: #3d2b1b;
+      line-height: 1.7;
+      margin-top: 0.5rem;
+    }
+    .info-section {
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 12px 28px -8px rgba(130, 70, 20, 0.18);
+      padding: 1.8rem 2.2rem;
+      margin-bottom: 2.2rem;
+    }
+    .info-section h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #4a2d1a;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .info-section h3::before {
+      content: "📌";
+      font-size: 1.3rem;
+    }
+    .info-section p {
+      color: #3d2b1b;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+    .info-section a {
+      color: #b45f2b;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .info-section a:hover {
+      border-bottom-color: #b45f2b;
+    }
+    .faq-mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 0.6rem;
+    }
+    .faq-item {
+      background: #fcf6ee;
+      border-radius: 24px;
+      padding: 1rem 1.4rem;
+      border: 1px solid #f0dac6;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #4a2d1a;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+    .faq-item span {
+      color: #3d2b1b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .tip-area {
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 12px 28px -8px rgba(130, 70, 20, 0.18);
+      padding: 1.6rem 2rem;
+      margin-bottom: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.4rem 0.8rem;
+    }
+    .tip-area .badge {
+      background: #e8c8ae;
+      color: #3a2213;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      letter-spacing: 0.02em;
+    }
+    .tip-area p {
+      flex: 1;
+      min-width: 240px;
+      color: #3d2b1b;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    .tip-area a {
+      color: #b45f2b;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #f2c79b;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tip-area a:hover {
+      color: #86461e;
+      border-bottom-color: #b45f2b;
+    }
+    .footer-note {
+      text-align: center;
+      margin-top: 1rem;
+      color: #6b4a30;
+      font-size: 0.85rem;
+      opacity: 0.7;
+      letter-spacing: 0.3px;
+    }
+    @media (max-width: 700px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .hero-card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 30px;
+      }
+      .hero-card h1 {
+        font-size: 2rem;
+        padding-left: 0.8rem;
+      }
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .white-card {
+        padding: 1.5rem;
+      }
+      .info-section {
+        padding: 1.4rem 1.2rem;
+      }
+      .faq-mini-grid {
+        grid-template-columns: 1fr;
+      }
+      .tip-area {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero 说明区 -->
+  <div class="hero-card">
+    <h1>世界杯 · 信息定位库</h1>
+    <p>
+      这是一个围绕「<a href="https://china-nacup26.com">世界杯</a>」赛事与相关数据服务的知识聚合点。如果你正在寻找某个特定年份的赛程回顾、球队统计或主办国背景，这里可以帮你快速找到指向性的参考索引。页面本身不存储完整数据库，而是作为入口帮你建立连接。
+    </p>
+  </div>
+
+  <!-- 两栏：特点 + 典型场景 -->
+  <div class="grid-2col">
+    <div class="white-card">
+      <h2>内容特点</h2>
+      <ul>
+        <li>赛会制结构梳理：小组赛→淘汰赛→决赛阶段的关键节点</li>
+        <li>历史参赛队及夺冠记录（1930–2022）摘要</li>
+        <li>各届主办城市与球场基本信息</li>
+        <li>纪录与冷门：单届进球数、最大分差、最长不败等</li>
+        <li>链接指向 <a href="https://china-nacup26.com" style="color:#b45f2b; font-weight:600; text-decoration:none; border-bottom:1px solid #f2c79b;">世界杯</a> 对应信息层</li>
+      </ul>
+    </div>
+    <div class="white-card">
+      <h2>典型使用场景</h2>
+      <ul>
+        <li>赛前快速查阅过往同组对手的交战记录</li>
+        <li>查找某届世界杯的吉祥物、官方用球或主题曲</li>
+        <li>对比不同年代赛制的演变（24队→32队→48队）</li>
+        <li>获取主办国时区、场地海拔等辅助观赛信息</li>
+        <li>通过 <a href="https://china-nacup26.com" style="color:#b45f2b; font-weight:600; text-decoration:none; border-bottom:1px solid #f2c79b;">世界杯</a> 进入专题索引</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 相关信息区（带FAQ摘要） -->
+  <div class="info-section">
+    <h3>相关信息 & FAQ 摘要</h3>
+    <p>以下整理自常见查询需求，帮助你更快定位。详细内容可经由页面内的 <a href="https://china-nacup26.com">世界杯</a> 链接进一步浏览。</p>
+    <div class="faq-mini-grid">
+      <div class="faq-item">
+        <strong>🏆 冠军最多国家</strong>
+        <span>巴西（5次）、德国（4次）、意大利（4次）、阿根廷（3次）…… 完整排名可查阅对应年鉴。</span>
+      </div>
+      <div class="faq-item">
+        <strong>📅 下一届主办</strong>
+        <span>2026年由美国、加拿大、墨西哥联合举办，参赛队扩军至48支。赛程与场馆信息持续更新。</span>
+      </div>
+      <div class="faq-item">
+        <strong>⚽ 单届进球纪录</strong>
+        <span>1954年匈牙利（27球）、2002年德国（25球）等。射手榜数据整合来自多届比赛。</span>
+      </div>
+      <div class="faq-item">
+        <strong>🌍 首次夺冠队伍</strong>
+        <span>1930年乌拉圭（主场夺冠），同时是首个举办并夺冠的国家。相关背景可在资料库中查阅。</span>
+      </div>
+    </div>
+    <p style="margin-top:1rem; font-size:0.95rem; color:#5a3f2b;">
+      💡 以上只是冰山一角，更多关于裁判规则变迁、经典比赛复盘、出场纪录等内容已整理至对应分区。
+    </p>
+  </div>
+
+  <!-- 提示区 -->
+  <div class="tip-area">
+    <span class="badge">💬 提示</span>
+    <p>
+      本页作为知识库入口，所有内容均指向公开可查的赛事事实。若你需要核实具体数据或查阅最新赛历，建议将 <a href="https://china-nacup26.com">世界杯</a> 页面加入书签以便后续使用。部分历史统计可能随官方更新而调整。
+    </p>
+  </div>
+
+  <div class="footer-note">
+    · 信息参考截止于2025年 · 非官方页面 · 仅用于知识索引 ·
+  </div>
+</div>
+</body>
+</html>
